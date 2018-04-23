@@ -1,0 +1,15 @@
+name: "SDAL Graphics Cookbook"
+output_dir: "docs"
+navbar:
+  title: "SDAL Graphics Cookbook"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Colormaps"
+      href: colormaps.html
+    - text: "Theme"
+      href: theme.html
+    - text: "Gallery"
+      href: gallery.html
+    - text: "About"
+      href: about.html

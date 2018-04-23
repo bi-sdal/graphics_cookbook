@@ -1,0 +1,50 @@
+---
+title: "Theme"
+---
+
+All the components from theme that can be modified can be found in the [ggplot2 theme reference][1]
+
+```{r}
+library(ggplot2)
+```
+
+```{r theme_default_ggplot}
+default <- ggplot(mtcars, aes(wt, mpg)) +
+    geom_point() +
+    labs(title = "theme plot.title = element_blank()",
+         subtitle = "theme plot.subtitle = element_blank()")
+default
+```
+
+# SDAL Theme
+
+```{r theme_sdal}
+theme_sdal <- function() {
+    theme_minimal() +
+        theme(
+            text = element_text(family = "sans", color = "#22211d"),
+            plot.title = element_text(size = 18),
+            plot.subtitle = element_text(size = 15),
+            plot.caption = element_text(size = 12),
+            axis.line = element_blank(),
+            axis.text.x = element_blank(),
+            axis.text.y = element_blank(),
+            axis.ticks = element_blank(),
+            axis.title.x = element_blank(),
+            axis.title.y = element_blank(),
+            panel.grid.major = element_blank(),
+            # panel.grid.major = element_line(color = "#ebebe5", size = 0.2),
+            panel.grid.minor = element_blank(),
+            # panel.grid.minor = element_line(color = "#ebebe5", size = 0.2),
+            plot.background = element_rect(fill = "#f5f5f2", color = NA),
+            panel.background = element_rect(fill = "#f5f5f2", color = NA),
+            legend.background = element_rect(fill = "#f5f5f2", color = NA),
+            panel.border = element_blank()
+        )
+}
+default + theme_sdal()
+```
+
+
+
+[1]: http://ggplot2.tidyverse.org/reference/theme.html

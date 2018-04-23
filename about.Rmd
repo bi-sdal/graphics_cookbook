@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+A place for the lab's graphics standards, plotting recipes, and gallery of plots and figures.

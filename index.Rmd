@@ -1,0 +1,11 @@
+---
+title: "SDAL Graphics Cookbook"
+---
+
+If you're starting a plot from scratch, I urge you to check the [R Graphics Cookbook][1] first.
+Information and detail about various ggplot2 components can be found in the [ggplot2 reference][2].
+
+
+
+[1]: http://www.cookbook-r.com/Graphs/
+[2]: http://ggplot2.tidyverse.org/reference/
