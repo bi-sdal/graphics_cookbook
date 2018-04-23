@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Colormaps</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">SDAL Graphics Cookbook</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="colormaps.html">Colormaps</a>
+</li>
+<li>
+  <a href="theme.html">Theme</a>
+</li>
+<li>
+  <a href="gallery.html">Gallery</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Colormaps</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#continuous-sequential">Continuous (sequential)</a><ul>
+<li><a href="#decile-color-palette">Decile color palette</a></li>
+</ul></li>
+<li><a href="#divergent">Divergent</a></li>
+<li><a href="#categorical-qualiative">Categorical (qualiative)</a><ul>
+<li><a href="#colorblind-and-print-friendly">Colorblind and Print friendly</a></li>
+<li><a href="#colorblind-friendly">Colorblind friendly</a></li>
+<li><a href="#print-friendly">Print friendly</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p><a href="http://colorbrewer2.org">Colorbrewer</a> and <a href="https://cran.r-project.org/web/packages/viridis/index.html">viridis</a> have been the two main resources for this page.</p>
+<pre class="r"><code>library(RColorBrewer)
+display.brewer.all(colorblindFriendly = TRUE)</code></pre>
+<p><img src="colormaps_files/figure-html/colormaps_colorbrewer_colorblind-1.png" width="672" /></p>
+<div id="continuous-sequential" class="section level1">
+<h1>Continuous (sequential)</h1>
+<p>Please see the <a href="https://cran.r-project.org/web/packages/viridis/index.html">viridis: Default Color Maps from ‘matplotlib’ CRAN package</a>. Thre is a <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">great vignette</a> by the package authors.</p>
+<pre class="r"><code>library(ggplot2)
+library(viridis)
+
+ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
+    geom_hex() +
+    coord_fixed() +
+    scale_fill_viridis() + # The virdis color scale
+    theme_bw()</code></pre>
+<p><img src="colormaps_files/figure-html/colormaps_ggplot_virdis_fill-1.png" width="672" /></p>
+<div id="decile-color-palette" class="section level2">
+<h2>Decile color palette</h2>
+<pre class="r"><code>library(scales)
+show_col(viridis_pal(option = &#39;virdis&#39;)(10))</code></pre>
+<pre><code>## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
+## Option &#39;virdis&#39; does not exist. Defaulting to &#39;viridis&#39;.</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_virdis_decile-1.png" width="672" /></p>
+<pre class="r"><code>show_col(viridis_pal(option = &#39;magma&#39;)(10))</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_magma_decile-1.png" width="672" /></p>
+</div>
+</div>
+<div id="divergent" class="section level1">
+<h1>Divergent</h1>
+<p>Here’s a function to plot colors in a series of rectangles (written by Vicki)</p>
+<pre class="r"><code>pal &lt;- function(col, border = &quot;light gray&quot;, ...) {
+    n &lt;- length(col)
+    plot(0, 0,
+         type = &quot;n&quot;,
+         xlim = c(0, 1),
+         ylim = c(0, 1),
+         axes = FALSE,
+         xlab = &quot;&quot;, ylab = &quot;&quot;, ...)
+    rect(0:(n - 1) / n,
+         0,
+         1:n/n,
+         1,
+         col = col,
+         border = border)
+}</code></pre>
+<p>HEX</p>
+<pre><code>#b2182b
+#ef8a62
+#fddbc7
+#d1e5f0
+#67a9cf
+#2166ac</code></pre>
+<pre class="r"><code>colours &lt;- c(
+    &#39;#b2182b&#39;,
+    &#39;#ef8a62&#39;,
+    &#39;#fddbc7&#39;,
+    &#39;#d1e5f0&#39;,
+    &#39;#67a9cf&#39;,
+    &#39;#2166ac&#39;
+)
+pal(colours)</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_divergent-1.png" width="672" /></p>
+</div>
+<div id="categorical-qualiative" class="section level1">
+<h1>Categorical (qualiative)</h1>
+<p>Here is a function to plot colors in a pie chart (written by Vicki)</p>
+<pre class="r"><code>wheel &lt;- function(col, radius = 1, ...) {
+    pie(rep(1, length(col)), col = col, radius = radius, ...)
+}</code></pre>
+<div id="colorblind-and-print-friendly" class="section level2">
+<h2>Colorblind and Print friendly</h2>
+<p><a href="http://colorbrewer2.org">Colorbrewer</a> only has 1 color scheme that is both colorblind and print friendly. It only allows 4 classes.</p>
+<p>Hex:</p>
+<pre><code>#a6cee3
+#1f78b4
+#b2df8a
+#33a02c</code></pre>
+<pre class="r"><code>cbPalette &lt;- c(
+    &#39;#a6cee3&#39;,
+    &#39;#1f78b4&#39;,
+    &#39;#b2df8a&#39;,
+    &#39;#33a02c&#39;
+)
+
+wheel(cbPalette)</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_categorical_print_cb-1.png" width="672" /></p>
+<p>Here we added a grey color to be used as a <code>NA</code> value in plots.</p>
+<pre class="r"><code>cbPalette &lt;- c(
+    &#39;#a6cee3&#39;,
+    &#39;#1f78b4&#39;,
+    &#39;#b2df8a&#39;,
+    &#39;#33a02c&#39;,
+    &quot;#999999&quot;,
+    &#39;#000000&#39;,
+    &#39;#ffffff&#39;
+)
+
+wheel(cbPalette)</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_categorical_print_cb_bgw-1.png" width="672" /></p>
+<p>RGB:</p>
+<pre><code>166,206,227
+31,120,180
+178,223,138
+51,160,44</code></pre>
+<p>CMTK</p>
+<pre><code>35,7,0,0
+90,30,0,0
+30,0,45,0
+80,0,100,0</code></pre>
+</div>
+<div id="colorblind-friendly" class="section level2">
+<h2>Colorblind friendly</h2>
+<p>The colorbline friendly pallete is the same as the colorblind and print friendly color scheme.</p>
+</div>
+<div id="print-friendly" class="section level2">
+<h2>Print friendly</h2>
+<p>Removing the colorblind friendly limitation, gives us a maximum of 9 qualitative colors. There is only 1 color scheme for this many classes.</p>
+<p>HEX</p>
+<pre><code>#e41a1c
+#377eb8
+#4daf4a
+#984ea3
+#ff7f00
+#ffff33
+#a65628
+#f781bf
+#999999</code></pre>
+<pre class="r"><code>cbPalette &lt;- c(
+    &#39;#e41a1c&#39;,
+    &#39;#377eb8&#39;,
+    &#39;#4daf4a&#39;,
+    &#39;#984ea3&#39;,
+    &#39;#ff7f00&#39;,
+    &#39;#ffff33&#39;,
+    &#39;#a65628&#39;,
+    &#39;#f781bf&#39;,
+    &#39;#999999&#39;
+)
+
+wheel(cbPalette)</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_categorical_print-1.png" width="672" /></p>
+<p>RGB</p>
+<pre><code>228,26,28
+55,126,184
+77,175,74
+152,78,163
+255,127,0
+255,255,51
+166,86,40
+247,129,191
+153,153,153</code></pre>
+<p>CMYK</p>
+<pre><code>10,90,80,0
+80,30,0,0
+70,0,80,0
+40,65,0,0
+0,50,100,0
+0,0,80,0
+35,60,80,0
+0,50,0,0
+0,0,0,40</code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
