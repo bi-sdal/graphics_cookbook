@@ -34,7 +34,7 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
 
 ```{r colormap_virdis_decile}
 library(scales)
-show_col(viridis_pal(option = 'virdis')(10))
+show_col(viridis_pal(option = 'viridis')(10))
 ```
 
 ```{r colormap_magma_decile}

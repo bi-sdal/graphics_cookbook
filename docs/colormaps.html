@@ -241,9 +241,7 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
 <div id="decile-color-palette" class="section level2">
 <h2>Decile color palette</h2>
 <pre class="r"><code>library(scales)
-show_col(viridis_pal(option = &#39;virdis&#39;)(10))</code></pre>
-<pre><code>## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option &#39;virdis&#39; does not exist. Defaulting to &#39;viridis&#39;.</code></pre>
+show_col(viridis_pal(option = &#39;viridis&#39;)(10))</code></pre>
 <p><img src="colormaps_files/figure-html/colormap_virdis_decile-1.png" width="672" /></p>
 <pre class="r"><code>show_col(viridis_pal(option = &#39;magma&#39;)(10))</code></pre>
 <p><img src="colormaps_files/figure-html/colormap_magma_decile-1.png" width="672" /></p>
