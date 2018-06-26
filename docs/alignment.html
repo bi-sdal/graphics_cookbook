@@ -11,7 +11,7 @@
 
 
 
-<title>Theme</title>
+<title>Alignment</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -207,46 +207,34 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Theme</h1>
+<h1 class="title toc-ignore">Alignment</h1>
 
 </div>
 
 
-<p>All the components from theme that can be modified can be found in the <a href="http://ggplot2.tidyverse.org/reference/theme.html">ggplot2 theme reference</a></p>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre class="r"><code>default &lt;- ggplot(mtcars, aes(wt, mpg)) +
+<div id="hjust-vjust" class="section level1">
+<h1>hjust vjust</h1>
+<p>Taken from: <a href="https://stackoverflow.com/questions/7263849/what-do-hjust-and-vjust-do-when-making-a-plot-using-ggplot" class="uri">https://stackoverflow.com/questions/7263849/what-do-hjust-and-vjust-do-when-making-a-plot-using-ggplot</a></p>
+<p>hjust controls horizontal justification and vjust controls vertical justification.</p>
+<p>The value of hjust and vjust are only defined between 0 and 1:</p>
+<ul>
+<li>0 means left-justified</li>
+<li>1 means right-justified</li>
+</ul>
+<pre class="r"><code>td &lt;- expand.grid(
+    hjust=c(0, 0.5, 1),
+    vjust=c(0, 0.5, 1),
+    angle=c(0, 45, 90),
+    text=&quot;text&quot;
+)
+
+ggplot(td, aes(x=hjust, y=vjust)) + 
     geom_point() +
-    labs(title = &quot;theme plot.title = element_blank()&quot;,
-         subtitle = &quot;theme plot.subtitle = element_blank()&quot;)
-default</code></pre>
-<p><img src="theme_files/figure-html/theme_default_ggplot-1.png" width="672" /></p>
-<div id="sdal-theme" class="section level1">
-<h1>SDAL Theme</h1>
-<pre class="r"><code>theme_sdal &lt;- function() {
-    theme_minimal() +
-        theme(
-            text = element_text(family = &quot;sans&quot;, color = &quot;#22211d&quot;),
-            plot.title = element_text(size = 18),
-            plot.subtitle = element_text(size = 15),
-            plot.caption = element_text(size = 12),
-            axis.line = element_blank(),
-            axis.text.x = element_blank(),
-            axis.text.y = element_blank(),
-            axis.ticks = element_blank(),
-            axis.title.x = element_blank(),
-            axis.title.y = element_blank(),
-            panel.grid.major = element_blank(),
-            # panel.grid.major = element_line(color = &quot;#ebebe5&quot;, size = 0.2),
-            panel.grid.minor = element_blank(),
-            # panel.grid.minor = element_line(color = &quot;#ebebe5&quot;, size = 0.2),
-            plot.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-            panel.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-            legend.background = element_rect(fill = &quot;#f5f5f2&quot;, color = NA),
-            panel.border = element_blank()
-        )
-}
-default + theme_sdal()</code></pre>
-<p><img src="theme_files/figure-html/theme_sdal-1.png" width="672" /></p>
+    geom_text(aes(label=text, angle=angle, hjust=hjust, vjust=vjust)) + 
+    facet_grid(~angle) +
+    scale_x_continuous(breaks=c(0, 0.5, 1), expand=c(0, 0.2)) +
+    scale_y_continuous(breaks=c(0, 0.5, 1), expand=c(0, 0.2))</code></pre>
+<p><img src="alignment_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 
 

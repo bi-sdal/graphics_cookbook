@@ -184,6 +184,9 @@ $(document).ready(function () {
   <a href="colormaps.html">Colormaps</a>
 </li>
 <li>
+  <a href="alignment.html">Alignment</a>
+</li>
+<li>
   <a href="theme.html">Theme</a>
 </li>
 <li>
@@ -237,6 +240,9 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
     coord_fixed() +
     scale_fill_viridis() + # The virdis color scale
     theme_bw()</code></pre>
+<pre><code>## Warning: Computation failed in `stat_binhex()`:
+## Package `hexbin` required for `stat_binhex`.
+## Please install and try again.</code></pre>
 <p><img src="colormaps_files/figure-html/colormaps_ggplot_virdis_fill-1.png" width="672" /></p>
 <div id="decile-color-palette" class="section level2">
 <h2>Decile color palette</h2>
@@ -282,6 +288,17 @@ show_col(viridis_pal(option = &#39;viridis&#39;)(10))</code></pre>
 )
 pal(colours)</code></pre>
 <p><img src="colormaps_files/figure-html/colormap_divergent-1.png" width="672" /></p>
+<pre class="r"><code>colours &lt;- c(
+    &#39;#b2182b&#39;,
+    &#39;#ef8a62&#39;,
+    &#39;#fddbc7&#39;,
+    &#39;#ffffff&#39;,
+    &#39;#d1e5f0&#39;,
+    &#39;#67a9cf&#39;,
+    &#39;#2166ac&#39;
+)
+pal(colours)</code></pre>
+<p><img src="colormaps_files/figure-html/colormap_divergent_white_middle-1.png" width="672" /></p>
 </div>
 <div id="categorical-qualiative" class="section level1">
 <h1>Categorical (qualiative)</h1>
