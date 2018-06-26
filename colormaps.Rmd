@@ -85,7 +85,18 @@ colours <- c(
 pal(colours)
 ```
 
-
+```{r colormap_divergent_white_middle}
+colours <- c(
+    '#b2182b',
+    '#ef8a62',
+    '#fddbc7',
+    '#ffffff',
+    '#d1e5f0',
+    '#67a9cf',
+    '#2166ac'
+)
+pal(colours)
+```
 
 # Categorical (qualiative)
 
